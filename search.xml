@@ -8,10 +8,10 @@
         <category>開箱文</category>
       </categories>
       <tags>
-        <tag>電子產品</tag>
         <tag>開箱文</tag>
         <tag>羅技</tag>
         <tag>滑鼠</tag>
+        <tag>電子產品</tag>
       </tags>
   </entry>
   <entry>
@@ -35,8 +35,8 @@
       </categories>
       <tags>
         <tag>Mac</tag>
-        <tag>測試</tag>
         <tag>電子產品</tag>
+        <tag>測試</tag>
       </tags>
   </entry>
   <entry>
@@ -48,8 +48,8 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>Shell</tag>
         <tag>安卓</tag>
+        <tag>Shell</tag>
       </tags>
   </entry>
   <entry>
@@ -60,8 +60,8 @@
         <category>編程學習</category>
       </categories>
       <tags>
-        <tag>NAS</tag>
         <tag>腳本</tag>
+        <tag>NAS</tag>
       </tags>
   </entry>
   <entry>
@@ -121,10 +121,10 @@
       </categories>
       <tags>
         <tag>Python</tag>
+        <tag>Shell</tag>
         <tag>Backup</tag>
         <tag>MAC</tag>
         <tag>Linux</tag>
-        <tag>Shell</tag>
       </tags>
   </entry>
   <entry>
