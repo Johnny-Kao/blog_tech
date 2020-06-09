@@ -8,10 +8,10 @@
         <category>開箱文</category>
       </categories>
       <tags>
-        <tag>電子產品</tag>
         <tag>開箱文</tag>
         <tag>羅技</tag>
         <tag>滑鼠</tag>
+        <tag>電子產品</tag>
       </tags>
   </entry>
   <entry>
@@ -35,8 +35,8 @@
       </categories>
       <tags>
         <tag>Mac</tag>
-        <tag>測試</tag>
         <tag>電子產品</tag>
+        <tag>測試</tag>
       </tags>
   </entry>
   <entry>
@@ -126,11 +126,6 @@
         <tag>Linux</tag>
         <tag>Shell</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[關於作者]]></title>
-    <url>%2Fblog_tech%2Fundefined.html</url>
-    <content type="text"><![CDATA[現居東京，從事金融業，致力將金融、數據及科技結合。 平時跑步探險城市的大小事，懶得動時就待在咖啡廳寫寫代碼 程序員與公司的橋樑多數公司都在尋找 - 能與程序員溝通合作，同時了解公司治理、財務會計等專業知識，最終建立可實現業務目標的人才。 我的專業能夠幫助公司找到最適合其業務目標的戰略，然後提出落地實施的計劃，確保公司最終能夠達成目標。 專業領域： 投資分析 - 股權投資、市場調研 財務會計 - 稅務安排、會計賬簿 區塊鏈 - 交易所建設、數字貨幣投資、跨境支付渠道 產品設計 - 交易所、銀行前中後台 編程 - Python, SQL, Bash等 聯繫我本站撰寫開箱文、編程學習、專案技術等內容。 開箱文：撰寫商品的選擇過程和使用感受，提供一個購買參考的依據。 編程學習：紀錄解決問題的過程和思路，作為未來的指引參考。 專案技術：以研究項目為核心，持續性的修改記錄過程。 希望透過分享，解決更多人的問題。 合作或是疑問，歡迎來信指教 at12885@gmail.com]]></content>
   </entry>
   <entry>
     <title><![CDATA[關於部落格]]></title>
