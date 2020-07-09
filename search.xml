@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【技術】Ubuntu 14.04安裝Python3.6（含pip3安裝）]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E6%8A%80%E8%A1%93%E3%80%91Ubuntu%2014.04%E5%AE%89%E8%A3%9DPython3.6%EF%BC%88%E5%90%ABpip3%E5%AE%89%E8%A3%9D%EF%BC%89.html</url>
+    <content type="text"><![CDATA[Ubuntu 14.04內建Python2.7和Python3.4雖然已經足以輕度使用，但是開發程序還是以最主流的為主，本文介紹如何安裝Python3.6 首先必須以Root權限登入，或是使用sudo執行下列指令 更新APT123jk@remote.server:~$ apt-get update # 更新套件jk@remote.server:~$ mkdir tmp # 建立一個tmp的資料夾，名稱可自定義jk@remote.server:~$ cd tmp # 進入資料夾 下載Python3.6安裝包123jk@remote.server:~&#x2F;tmp$remote wget https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.6.7&#x2F;Python-3.6.7.tgz # 下載安裝包jk@remote.server:~&#x2F;tmp$ tar xvf Python-3.6.7.tgz # 解壓縮jk@remote.server:~&#x2F;tmp$ cd Python-3.6.7&#x2F; # 進入解壓縮後的資料夾 安裝必要套件1jk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev # 安裝後續需要使用的套件，請耐心等待 執行編譯安裝1234jk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ .&#x2F;configure --enable-optimizations --with-ensurepip&#x3D;installjk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ makejk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ make altinstall# 上面3個步驟逐步執行，系統編譯依據硬體不同，需要花費點時間，請耐心等待 確認版本1234jk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ python3.6 -VPython 3.6.7jk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ which python3.6&#x2F;usr&#x2F;local&#x2F;bin&#x2F;python3.6 # 這個路徑等下會用到 設定Python版本優先級123456jk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ ls &#x2F;usr&#x2F;bin&#x2F;python* # 確認目前安裝的版本有哪些&#x2F;usr&#x2F;bin&#x2F;python2.7 &#x2F;usr&#x2F;bin&#x2F;python3.4jk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;python python &#x2F;usr&#x2F;bin&#x2F;python2.7 1jk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;python python &#x2F;usr&#x2F;bin&#x2F;python3.4 1jk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;python python &#x2F;usr&#x2F;local&#x2F;bin&#x2F;python3.6 2# 剛剛的路徑 &#x2F;usr&#x2F;local&#x2F;bin&#x2F;python3.6 派上用場了，用於配置優先順序，數字越大優先使用，我們這邊設置成2，代表優先順序為 python3.6 &gt; python3.4 &gt; python2.7，更新順序可以使用update-alternatives --config python指令。 完成1234jk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ python -m pip -V # 確認pip使用的python版本pip 10.0.1 from &#x2F;usr&#x2F;local&#x2F;lib&#x2F;python3.6&#x2F;site-packages&#x2F;pip (python 3.6)jk@remote.server:~&#x2F;tmp&#x2F;Python-3.6.7$ pip3.6 install xxxxx # 後續安裝其他套件的方式 累計閱讀量次]]></content>
+      <categories>
+        <category>編程學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>SSH</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【項目】購買NAS - 採購選擇篇]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E9%A0%85%E7%9B%AE%E3%80%91%E8%B3%BC%E8%B2%B7NAS%20-%20%E6%8E%A1%E8%B3%BC%E9%81%B8%E6%93%87%E7%AF%87.html</url>
+    <content type="text"><![CDATA[上篇文章 - 【項目】購買NAS - 需求確認篇確認完需求之後，今天介紹實際執行中需要考慮的細節。 一個NAS的組成主要可以分為：機箱、硬體、硬碟和操作系統這幾個大部分。本篇文章會先探討這幾個部分之後，才購買零件組裝。 機箱選擇首先是選擇機箱，目前市面上有許多選項，基本挑選自己喜歡順眼的即可，但是NAS機箱需要特別注意： 主機板大小機箱可放置的主機板大小，ATX/Mini-ITX等，一般建議如果要作為家中的影音中心的話，可以挑選小主機板搭配小主機殼 硬碟數量DIY NAS需要考慮安裝幾個硬碟，通常硬碟可安裝數量越多當然越好，注意硬碟尺寸請選擇3.5寸的，成本較低。另外如果主機殼有熱拔插的硬碟槽位當然是最好，方便更換硬碟。但是沒有也無所謂，基本上都NAS的硬盤不會頻繁更換。 電源配合硬件規格和硬盤的數量需要配置瓦數足夠的電源，除非有特殊需求，通常以NAS來說100或150W的電源足夠了。 散熱NAS需要24小時開機，需要考慮散熱，風扇的部分選擇靜音風扇，儘量以大口徑低轉速為主，可避免惱人的噪音。 硬體選擇NAS本質就是一套電腦，對於效能不要求的話，甚至可以選擇ARM CPU的套裝硬體使用，但是一般建議選擇intel CPU的套件使用，因為以目前來說，NAS系統對於intel架構的硬體支援性還是較高的。如果真的沒有想法的話，可以參考Synology DS918規格配置，進行調整。 CPU以DS918 CPU為例，Intel Celeron J3455 (四核心 1.5 burst up to 2.3 GHz)，可以發現CPU選擇Celeron以上，多核的即可，不需要太高級，避免浪費電費。 記憶體記憶體4GB即可，記憶體頻率可不必太在意，配合主機板選擇即可 主機板決定好CPU和記憶體之後，填選一張IO接口多、千兆網卡（1個即可，2個可作為軟路由使用）、SATA接口多（依據硬碟數量配置），最後注意一下主機板的大小需要和機殼匹配。 硬碟選擇關於NAS的硬碟要用什麼硬碟，網路上很多文章可以參考，這邊提供一個考慮點供大家思考。 如何選擇，取決你對數據的重視程度，以及運氣。是的，沒錯就是運氣。即使你買了高級的硬碟，也有可能意外的買到品質不好的硬碟。其次普通的硬碟，在一般正常環境下也可以長時間運行。與其在這個地方糾結，不如利用硬碟陣列（RAID）減少意外發生的可能性。 系統選擇市面上有多種系統，如果DIY的話，有Freenas、Openfiler等開源系統可選擇，開源系統的好處就是可玩性非常高，缺點就是所有東西都需要自己動手處理，包含系統安裝、除錯、維護等。 成熟的商用方案有Synology（群暉）、QNAP等系統可選擇，但是這些系統都是和商用NAS硬體一同販售的，市面上還是可以看到黑群暉等系統，簡單來說也就是將群暉系統安裝在DIY的硬件上。 秉持著支持正版的心態，還是呼籲使用正版。這邊依據自己的需求選擇即可。 綜合選擇基本上如果追求終極效能和性價比的話，會選擇工控主機板套件加上Freenas系統搭配。工控主機板可以理解成能夠高強度、常時間使用的主機板，有著低功耗、多IO接口、穩定，甚至有些方案把CPU和記憶體都安裝在主機板上了，這樣就不必一一去配置。長期來看，這也是最實惠的一個方式。 另外一個方式就是和上面提到的一樣，組裝一台低配置的電腦，這樣的好處在於後續這些零件都可以和家用主機通用。 還有一種方式就是尋找數字貨幣挖礦的相關淘汰設備作為主機，這個好處在於挖礦必須非常注意電費和收益的關係，因此可以確保硬體的耗能低，不過因為挖礦的高強度使用，主機的壽命比較難以保證。 最終方案綜合考慮之後，本次選擇打造性價比高的NAS，因此以選擇了一個冒險方案 - 蝸牛星際NAS作為個人使用，硬碟部分挑選了監控專用的WD紫盤組建RAID1加上從筆電拆下來的2.5寸硬盤作為下載檔案專用的硬盤。 下一篇文章將會介紹整個採購過程。 累計閱讀量次]]></content>
+      <categories>
+        <category>專案項目</category>
+      </categories>
+      <tags>
+        <tag>NAS</tag>
+        <tag>備份</tag>
+        <tag>硬碟</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【技術】SSH允許Root登入]]></title>
     <url>%2Fblog_tech%2F%E3%80%90%E6%8A%80%E8%A1%93%E3%80%91SSH%E5%85%81%E8%A8%B1Root%E7%99%BB%E5%85%A5.html</url>
-    <content type="text"><![CDATA[SSH默認是不接受Root登入的，這樣的設定可以保證系統安全，然而綁定RSA之後，即使Root登入也不是那麼危險，因此今天教你如何允許Root登入。 首先必須以Root權限登入，或是使用sudo執行下列指令 開啟設定檔1jk@rmeote.server:~$ sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config 輸入完畢後，回車進入vi修改頁面，不用使用vi修改的人，也可以使用vim或nano，總之挑選一個適合使用的編輯器即可。 123456# Authentication:#LoginGraceTime 2mPermitRootLogin yes # &lt;----設定在這邊#StrictModes yes#MaxAuthTries 6#MaxSessions 10 去處PermitRootLogin yes 前面的#標誌，存檔退出修改。 重新啟動ssh1jk@rmeote.server:~$ sudo service sshd restart 完成設定完成之後，之後可以使用Root登入： 12345平時登入用一般使用者ubuntu例子：jk@rmeote.server:~$ ssh ubuntu@192.168.0.123用Root登入方式，使用者改成root登入：jk@rmeote.server:~$ ssh root@192.168.0.123 累計閱讀量次]]></content>
+    <content type="text"><![CDATA[SSH默認是不接受Root登入的，這樣的設定可以保證系統安全，然而綁定RSA之後，即使Root登入也不是那麼危險，因此今天教你如何允許Root登入。 首先必須以Root權限登入，或是使用sudo執行下列指令 開啟設定檔1jk@remote.server:~$ sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config 輸入完畢後，回車進入vi修改頁面，不用使用vi修改的人，也可以使用vim或nano，總之挑選一個適合使用的編輯器即可。 123456# Authentication:#LoginGraceTime 2mPermitRootLogin yes # &lt;----設定在這邊#StrictModes yes#MaxAuthTries 6#MaxSessions 10 去處PermitRootLogin yes 前面的#標誌，存檔退出修改。 重新啟動ssh1jk@remote.server:~$ sudo service sshd restart 完成設定完成之後，之後可以使用Root登入： 12345平時登入用一般使用者ubuntu例子：jk@remote.server:~$ ssh ubuntu@192.168.0.123用Root登入方式，使用者改成root登入：jk@remote.server:~$ ssh root@192.168.0.123 累計閱讀量次]]></content>
       <categories>
         <category>編程學習</category>
       </categories>
