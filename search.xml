@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[【技術】群暉部署Homebridge]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E6%8A%80%E8%A1%93%E3%80%91%E7%BE%A4%E6%9A%89%E9%83%A8%E7%BD%B2Homebridge.html</url>
+    <content type="text"><![CDATA[利用群暉NAS閒置的效能，我們可以輕鬆部署需要的Docker，配合上家中的智能家居設備和閒置的iPhone手機，即可實現用Siri控制家中的設備。 進入群暉Docker管理介面，進行安裝。 下載輸入Homebridge下載套件，選擇第一個即可。 部署細節下載成功之後，雙擊部署。 部署細節不截圖了，只提示幾個重要的部署參數，在進階設定中： 啟用自動重啓 - 可選可不選 儲存空間 - 建立資料夾 - 資料夾路徑可自由選擇（記住位置之後會用到），掛載路徑必須為：/homebridge 網路 - 與Docker Host使用相同網路 配置完，先別啟用否則會報錯。 設定檔在剛剛的資料夾路徑位置下，建立一個名為config.json的檔案，可參考我的配置。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100&#123; &quot;bridge&quot;:&#123; &quot;name&quot;:&quot;HB-AAA&quot;, &quot;username&quot;:&quot;7C:49:EB:23:A1:8B&quot;, &quot;port&quot;:55566, &quot;pin&quot;:&quot;123-45-678&quot; &#125;, &quot;platforms&quot;:[ &#123; &quot;platform&quot;:&quot;MiOutletPlatform&quot;, &quot;deviceCfgs&quot;:[ &#123; &quot;type&quot;:&quot;MiPlugBase&quot;, &quot;ip&quot;:&quot;192.168.123.15&quot;, &quot;token&quot;:&quot;7a6cb9c38c4989020ddf2ad85b29c7fe&quot;, &quot;outletName&quot;:&quot;音箱&quot;, &quot;outletDisable&quot;:false, &quot;temperatureName&quot;:&quot;S1-TEMP&quot;, &quot;temperatureDisable&quot;:true, &quot;switchLEDName&quot;:&quot;音-LED&quot;, &quot;switchLEDDisable&quot;:false &#125;, &#123; &quot;type&quot;:&quot;MiPlugBase&quot;, &quot;ip&quot;:&quot;192.168.123.131&quot;, &quot;token&quot;:&quot;9bd090b8f320d6701f3e32d0e39d5885&quot;, &quot;outletName&quot;:&quot;Humid&quot;, &quot;outletDisable&quot;:false, &quot;temperatureName&quot;:&quot;S2-TEMP&quot;, &quot;temperatureDisable&quot;:true, &quot;switchLEDName&quot;:&quot;湿-LED&quot;, &quot;switchLEDDisable&quot;:false &#125;, &#123; &quot;type&quot;:&quot;MiPlugBase&quot;, &quot;ip&quot;:&quot;192.168.123.232&quot;, &quot;token&quot;:&quot;112fe780dc85b4d07c20193cd43fd12f&quot;, &quot;outletName&quot;:&quot;NightLight&quot;, &quot;outletDisable&quot;:false, &quot;temperatureName&quot;:&quot;S3-TEMP&quot;, &quot;temperatureDisable&quot;:true, &quot;switchLEDName&quot;:&quot;夜-LED&quot;, &quot;switchLEDDisable&quot;:false &#125;, &#123; &quot;type&quot;:&quot;MiPlugBase&quot;, &quot;ip&quot;:&quot;192.168.123.8&quot;, &quot;token&quot;:&quot;f31235718b56a5352ba331bf81201949&quot;, &quot;outletName&quot;:&quot;Stero_coffee&quot;, &quot;outletDisable&quot;:false, &quot;temperatureName&quot;:&quot;S4-TEMP&quot;, &quot;temperatureDisable&quot;:true, &quot;switchLEDName&quot;:&quot;咖-LED&quot;, &quot;switchLEDDisable&quot;:false &#125; ] &#125;, &#123; &quot;platform&quot;:&quot;MiPhilipsLightPlatform&quot;, &quot;deviceCfgs&quot;:[ &#123; &quot;type&quot;:&quot;MiPhilipsSmartBulb&quot;, &quot;ip&quot;:&quot;192.168.123.242&quot;, &quot;token&quot;:&quot;b62538172d07eaec3447bf004c7147f3&quot;, &quot;lightName&quot;:&quot;灯泡&quot;, &quot;lightDisable&quot;:false &#125; ] &#125; ], &quot;accessories&quot;:[ &#123; &quot;accessory&quot;:&quot;XiaomiRoborockVacuum&quot;, &quot;name&quot;:&quot;CleanRobot&quot;, &quot;ip&quot;:&quot;192.168.123.26&quot;, &quot;token&quot;:&quot;5a6b496a416a6c48636a4939397a5448&quot;, &quot;pause&quot;:false, &quot;dock&quot;:true, &quot;waterBox&quot;:false, &quot;cleanword&quot;:&quot;cleaning&quot; &#125;, &#123; &quot;accessory&quot;:&quot;MijiaCamera&quot;, &quot;name&quot;:&quot;摄像头&quot;, &quot;ip&quot;:&quot;192.168.123.21&quot;, &quot;token&quot;:&quot;6641654f34666d665a485735386c746f&quot; &#125;, &#123; &quot;accessory&quot;:&quot;MiAirPurifier&quot;, &quot;name&quot;:&quot;净化器&quot;, &quot;ip&quot;:&quot;192.168.123.45&quot;, &quot;token&quot;:&quot;182de82538067a3eb3d93b6934fe9434&quot;, &quot;showTemperature&quot;:true, &quot;showHumidity&quot;:true, &quot;showAirQuality&quot;:true, &quot;showLED&quot;:true, &quot;showBuzzer&quot;:true &#125; ]&#125; 上述注意幾個地方： json格式必須正確，否則一定會報錯，可用這個網站檢查。 bridge部分 - 符合格式，自由填寫即可 platforms部分 - 依據智能設備有所不同，但至少需要包含ip和token（小米設備為例） 存檔後，啟動Docker，此時還是會報錯，先忽略，安裝套件。 安裝套件雙擊Homebridge Docker新增sh指令，並安裝下列套件。 1234567891011/homebridge # npm install -g homebridge-mi-philips-light# 上述為範例，下列套件依據自己的設備選擇安裝或不安裝homebridge-xiaomi-roborock-vacuumhomebridge-mijia-camerahomebridge-mi-led-desk-lamphomebridge-yeelighthomebridge-mi-outlethomebridge-mi-airpurifierhomebridge-mi-air-purifiermiio 完成全部安裝完之後，重新啟動Docker，到iPhone設定家居即可。如有問題歡迎發問。 累計閱讀量次]]></content>
+      <categories>
+        <category>編程學習</category>
+      </categories>
+      <tags>
+        <tag>群暉</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【技術】Ubuntu 14.04安裝Python3.6（含pip3安裝）]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E6%8A%80%E8%A1%93%E3%80%91Ubuntu%2014.04%E5%AE%89%E8%A3%9DPython3.6%EF%BC%88%E5%90%ABpip3%E5%AE%89%E8%A3%9D%EF%BC%89.html</url>
+    <content type="text"><![CDATA[Ubuntu 14.04內建Python2.7和Python3.4雖然已經足以輕度使用，但是開發程序還是以最主流的為主，本文介紹如何安裝Python3.6 首先必須以Root權限登入，或是使用sudo執行下列指令 更新APT123jk@remote.server:~$ apt-get update # 更新套件jk@remote.server:~$ mkdir tmp # 建立一個tmp的資料夾，名稱可自定義jk@remote.server:~$ cd tmp # 進入資料夾 下載Python3.6安裝包123jk@remote.server:~/tmp$remote wget https://www.python.org/ftp/python/3.6.7/Python-3.6.7.tgz # 下載安裝包jk@remote.server:~/tmp$ tar xvf Python-3.6.7.tgz # 解壓縮jk@remote.server:~/tmp$ cd Python-3.6.7/ # 進入解壓縮後的資料夾 安裝必要套件1jk@remote.server:~/tmp/Python-3.6.7$ apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev # 安裝後續需要使用的套件，請耐心等待 執行編譯安裝1234jk@remote.server:~/tmp/Python-3.6.7$ ./configure --enable-optimizations --with-ensurepip=installjk@remote.server:~/tmp/Python-3.6.7$ makejk@remote.server:~/tmp/Python-3.6.7$ make altinstall# 上面3個步驟逐步執行，系統編譯依據硬體不同，需要花費點時間，請耐心等待 確認版本1234jk@remote.server:~/tmp/Python-3.6.7$ python3.6 -VPython 3.6.7jk@remote.server:~/tmp/Python-3.6.7$ which python3.6/usr/local/bin/python3.6 # 這個路徑等下會用到 設定Python版本優先級123456jk@remote.server:~/tmp/Python-3.6.7$ ls /usr/bin/python* # 確認目前安裝的版本有哪些/usr/bin/python2.7 /usr/bin/python3.4jk@remote.server:~/tmp/Python-3.6.7$ update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1jk@remote.server:~/tmp/Python-3.6.7$ update-alternatives --install /usr/bin/python python /usr/bin/python3.4 1jk@remote.server:~/tmp/Python-3.6.7$ update-alternatives --install /usr/bin/python python /usr/local/bin/python3.6 2# 剛剛的路徑 /usr/local/bin/python3.6 派上用場了，用於配置優先順序，數字越大優先使用，我們這邊設置成2，代表優先順序為 python3.6 &gt; python3.4 &gt; python2.7，更新順序可以使用update-alternatives --config python指令。 完成1234jk@remote.server:~/tmp/Python-3.6.7$ python -m pip -V # 確認pip使用的python版本pip 10.0.1 from /usr/local/lib/python3.6/site-packages/pip (python 3.6)jk@remote.server:~/tmp/Python-3.6.7$ pip3.6 install xxxxx # 後續安裝其他套件的方式 累計閱讀量次]]></content>
+      <categories>
+        <category>編程學習</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
+        <tag>Python</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【項目】購買NAS - 採購選擇篇]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E9%A0%85%E7%9B%AE%E3%80%91%E8%B3%BC%E8%B2%B7NAS%20-%20%E6%8E%A1%E8%B3%BC%E9%81%B8%E6%93%87%E7%AF%87.html</url>
+    <content type="text"><![CDATA[上篇文章 - 【項目】購買NAS - 需求確認篇確認完需求之後，今天介紹實際執行中需要考慮的細節。 一個NAS的組成主要可以分為：機箱、硬體、硬碟和操作系統這幾個大部分。本篇文章會先探討這幾個部分之後，才購買零件組裝。 機箱選擇首先是選擇機箱，目前市面上有許多選項，基本挑選自己喜歡順眼的即可，但是NAS機箱需要特別注意： 主機板大小機箱可放置的主機板大小，ATX/Mini-ITX等，一般建議如果要作為家中的影音中心的話，可以挑選小主機板搭配小主機殼 硬碟數量DIY NAS需要考慮安裝幾個硬碟，通常硬碟可安裝數量越多當然越好，注意硬碟尺寸請選擇3.5寸的，成本較低。另外如果主機殼有熱拔插的硬碟槽位當然是最好，方便更換硬碟。但是沒有也無所謂，基本上都NAS的硬盤不會頻繁更換。 電源配合硬件規格和硬盤的數量需要配置瓦數足夠的電源，除非有特殊需求，通常以NAS來說100或150W的電源足夠了。 散熱NAS需要24小時開機，需要考慮散熱，風扇的部分選擇靜音風扇，儘量以大口徑低轉速為主，可避免惱人的噪音。 硬體選擇NAS本質就是一套電腦，對於效能不要求的話，甚至可以選擇ARM CPU的套裝硬體使用，但是一般建議選擇intel CPU的套件使用，因為以目前來說，NAS系統對於intel架構的硬體支援性還是較高的。如果真的沒有想法的話，可以參考Synology DS918規格配置，進行調整。 CPU以DS918 CPU為例，Intel Celeron J3455 (四核心 1.5 burst up to 2.3 GHz)，可以發現CPU選擇Celeron以上，多核的即可，不需要太高級，避免浪費電費。 記憶體記憶體4GB即可，記憶體頻率可不必太在意，配合主機板選擇即可 主機板決定好CPU和記憶體之後，填選一張IO接口多、千兆網卡（1個即可，2個可作為軟路由使用）、SATA接口多（依據硬碟數量配置），最後注意一下主機板的大小需要和機殼匹配。 硬碟選擇關於NAS的硬碟要用什麼硬碟，網路上很多文章可以參考，這邊提供一個考慮點供大家思考。 如何選擇，取決你對數據的重視程度，以及運氣。是的，沒錯就是運氣。即使你買了高級的硬碟，也有可能意外的買到品質不好的硬碟。其次普通的硬碟，在一般正常環境下也可以長時間運行。與其在這個地方糾結，不如利用硬碟陣列（RAID）減少意外發生的可能性。 系統選擇市面上有多種系統，如果DIY的話，有Freenas、Openfiler等開源系統可選擇，開源系統的好處就是可玩性非常高，缺點就是所有東西都需要自己動手處理，包含系統安裝、除錯、維護等。 成熟的商用方案有Synology（群暉）、QNAP等系統可選擇，但是這些系統都是和商用NAS硬體一同販售的，市面上還是可以看到黑群暉等系統，簡單來說也就是將群暉系統安裝在DIY的硬件上。 秉持著支持正版的心態，還是呼籲使用正版。這邊依據自己的需求選擇即可。 綜合選擇基本上如果追求終極效能和性價比的話，會選擇工控主機板套件加上Freenas系統搭配。工控主機板可以理解成能夠高強度、常時間使用的主機板，有著低功耗、多IO接口、穩定，甚至有些方案把CPU和記憶體都安裝在主機板上了，這樣就不必一一去配置。長期來看，這也是最實惠的一個方式。 另外一個方式就是和上面提到的一樣，組裝一台低配置的電腦，這樣的好處在於後續這些零件都可以和家用主機通用。 還有一種方式就是尋找數字貨幣挖礦的相關淘汰設備作為主機，這個好處在於挖礦必須非常注意電費和收益的關係，因此可以確保硬體的耗能低，不過因為挖礦的高強度使用，主機的壽命比較難以保證。 最終方案綜合考慮之後，本次選擇打造性價比高的NAS，因此以選擇了一個冒險方案 - 蝸牛星際NAS作為個人使用，硬碟部分挑選了監控專用的WD紫盤組建RAID1加上從筆電拆下來的2.5寸硬盤作為下載檔案專用的硬盤。 下一篇文章將會介紹整個採購過程。 累計閱讀量次]]></content>
+      <categories>
+        <category>專案項目</category>
+      </categories>
+      <tags>
+        <tag>NAS</tag>
+        <tag>備份</tag>
+        <tag>硬碟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【項目】購買NAS - 硬體簡易開箱篇]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E9%A0%85%E7%9B%AE%E3%80%91%E8%B3%BC%E8%B2%B7NAS%20-%20%E7%A1%AC%E9%AB%94%E7%B0%A1%E6%98%93%E9%96%8B%E7%AE%B1%E7%AF%87.html</url>
+    <content type="text"><![CDATA[上篇文章 - 【項目】購買NAS - 採購選擇篇後，這邊來概略說明購買的環節。 挑選這次選擇是蝸牛星際NAS的方案，蝸牛星際前身大概就是挖礦賣錢的騙局，目前硬體已經很多不能挖礦，因此以相當划算的價格在市面上銷售。 目前依據配置不同，流通的主要有4個版本：A/B/C/D詳細的介紹表格 外觀 如果你是外觀控的話，基本上看順眼挑就好。不然你可以依照自己的需求選擇，稍微說一下挑選的大方向。 版本有分單/雙網口和百兆/千兆網卡，購買的時候需要特別注意。單網口適合一般用戶，想要玩軟路由的選擇雙網口；百兆可應付日常需求，對於速度有一定需求的千兆網卡。購買的時候記得確認是否為真千兆網卡，有些網卡是透過短接電路板刷BIOS達成千兆速度，後續有穩定性問題，需要特別注意。 如果需要加裝很多硬碟（超過4個以上）選擇C/D款，確保有足夠的SATA接口；電源的話，可以確認下是不是zumax的電源，相對會穩定些，不過老實說我覺得基本上這種東西很靠運氣，如果真的追求穩定的話，可以購買伺服器1U電源更換就好。 最終綜合考慮後選擇了A款單千兆網卡入手。 購買想要購買的人，可以直接到萬能的淘寶上選購，直接走集郵方式寄送就好。追求便宜的人，可以在二手平台閒魚購買，價格不要選擇過於便宜不合理的就好。 硬碟硬碟最終使用了監控專用的WD紫盤組建RAID1，加上從筆電拆下來的2.5寸硬盤作為下載檔案專用和NAS系統備份的硬盤。總計4個硬盤，2個3.5寸，2個2.5寸硬盤。 不得不說閒魚真的讓我驚喜連連，號稱全新的WD紫盤2顆，花費了僅僅450人民幣，大約不到2000台幣，確認硬碟健康程度沒什麼問題後，就直接安裝上了，反正這個價格加上RAID1的配置，基本上已經大幅度的減少資料丟失的風險了。號稱全新的硬碟，防塵袋包裝的有模有樣的 2顆硬碟組成RAID1，降低資料丟失風險 主機主機花費了很多時間挑選商家，因為是二手的挖礦設備，價格浮動很大，之前購買的價格大概在250人民幣到400人民幣之間浮動。其次很多商家無法保障商品外觀，或是沒辦法挑選使用哪種電源，需要自己慢慢挑選。 有附帶鎖，看起來很細緻 2邊側面有散熱孔，木質紋路是我用壁紙貼上去的，原本是黑色金屬材質 稍微來一張正面 打開前面的金屬網蓋，有4個熱拔插3.5硬盤位置，2個USB2.0，1個開關和1個重開機鈕，硬盤有燈號顯示狀態。 再來一張開門照片 關於系統通常購買的時候，商家會幫你安裝黑群暉系統，就是將群暉系統安裝在非群暉的硬體上，對於很多人來說算是很方便。不過黑群暉系統不是正版有安全性風險，另外很多功能（如內網穿透）無法使用。不過話說回來，如果單純只是用來存儲的話，其實基本上也沒什麼大問題。最後還是呼籲自己安裝成Freenas系統使用吧。 結語之後的文章將會把相關的設定和推薦的使用方式推薦給大家，最後我的主機安裝了2個系統，主力系統為Freenas，另一個是商家安裝的黑群暉（教學用途）。如果你對於購買的細節有興趣，歡迎留言發問。 累計閱讀量次]]></content>
+      <categories>
+        <category>專案項目</category>
+      </categories>
+      <tags>
+        <tag>NAS</tag>
+        <tag>備份</tag>
+        <tag>硬碟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【技術】SSH允許Root登入]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E6%8A%80%E8%A1%93%E3%80%91SSH%E5%85%81%E8%A8%B1Root%E7%99%BB%E5%85%A5.html</url>
+    <content type="text"><![CDATA[SSH默認是不接受Root登入的，這樣的設定可以保證系統安全，然而綁定RSA之後，即使Root登入也不是那麼危險，因此今天教你如何允許Root登入。 首先必須以Root權限登入，或是使用sudo執行下列指令 開啟設定檔1jk@remote.server:~$ sudo vi /etc/ssh/sshd_config 輸入完畢後，回車進入vi修改頁面，不用使用vi修改的人，也可以使用vim或nano，總之挑選一個適合使用的編輯器即可。 123456# Authentication:#LoginGraceTime 2mPermitRootLogin yes # &lt;----設定在這邊#StrictModes yes#MaxAuthTries 6#MaxSessions 10 去處PermitRootLogin yes 前面的#標誌，存檔退出修改。 重新啟動ssh1jk@remote.server:~$ sudo service sshd restart 完成設定完成之後，之後可以使用Root登入： 12345平時登入用一般使用者ubuntu例子：jk@remote.server:~$ ssh ubuntu@192.168.0.123用Root登入方式，使用者改成root登入：jk@remote.server:~$ ssh root@192.168.0.123 累計閱讀量次]]></content>
+      <categories>
+        <category>編程學習</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
+        <tag>腳本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【項目】購買NAS - 需求確認篇]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E9%A0%85%E7%9B%AE%E3%80%91%E8%B3%BC%E8%B2%B7NAS%20-%20%E9%9C%80%E6%B1%82%E7%A2%BA%E8%AA%8D%E7%AF%87.html</url>
+    <content type="text"><![CDATA[當家中的電子設備越來越多，你最需要的是什麼？我想應該是一台文件服務器NAS了吧？今天簡單介紹我的NAS，之後的一系列文章將會圍繞著NAS設定展開。 首先先簡單介紹一下NAS是什麼，NAS (網路儲存裝置) 是一種連接您家中或辦公室網路的智慧儲存裝置。您可以將家人或同事的重要文件、珍貴的相片、影音收藏等檔案儲存於 NAS，僅需透過網頁瀏覽器或手機應用程式，即可輕鬆存取檔案並享有 NAS 提供的豐富服務。 需求思考購買設備之前，我習慣先思考自己的需求，以及預計的使用時間，這樣才能決定購買預算和購買方式。 容量估算如同一開始介紹，NAS主要的目的就是備份，其他的功能都是附加，因此需要確認自己所需的容量為多少。大致估算的方式如下： 所需容量 = 目前所有設備容量 * 3倍 + 每年預計產生數據量 以我自己來說，目前所有的設備容量大約1T，每年產生數據量大約2T左右，因此我的NAS大約需要5T的容量。請記得如果可以的話，儘量買大容量的硬盤和多槽位的NAS，可以省去未來升級浪費舊有硬盤的機率。 硬盤槽位常見的NAS基本上都是以2槽位為主流，越增加槽位，價格越貴，個人建議至少選擇4個槽位起跳。 系統選擇市面上有多種系統，如果DIY的話，有Freenas、Openfiler等開源系統可選擇；直接購買套裝系統有Synology、QNAP可選擇。 普通功能除了存放資料外，NAS一般還有以下功能： 服務器 - 可作為網頁服務器； 下載中心 - 24小時下載種子等多種格式檔案； 虛擬機 - 除了NAS本身的系統外，另外安裝另一個系統。 特殊功能其他特殊功能，比較常見於DIY的NAS中，這邊也稍微提到一下： 軟路由 - 類似家中的路由器，或是WIFI基地台，具有網絡加速優化等設定； Docker - 一般商用NAS方案都有，但是普通人幾乎使用不到。 基本要求NAS需要24小時開機提供全時間的數據備份，因此下列幾點很重要： 省電； 穩定性高； 容易操作； 價格便宜（性價比高）。 總結需求綜合上述的幾個要素，我相信你對於自己的需求已經很了解了，最終你的需求應該簡潔成一句話，無論去商場購買商用方案，或是自己要DIY組裝一台，都會非常的有幫助。 例如我的需求就是：我需要一台容量為5TB，4槽位，具有基礎功能，特殊功能可有可無，性價比高的NAS。 基本上這樣清楚的需求，在市面上可選擇的商用方案，大約會只剩下3-5個選項，最後你需要考慮的就是價格的問題，和實際操作的便利性了。 訂製雖然上面的需求很清楚，但是如果你仔細上網搜索，你會發現商用方案無論是Synology或是QNAP家的4槽位NAS價格落在15,000左右，而且這還是不包含硬盤的價格，如果要完全符合要求的話，至少需要花費20,000左右，這個價格實在不能說是CP值高。 因此最終我打算訂製屬於自己的NAS。 先上一張最後的成果圖，小巧的機箱配上木質的外觀，很難相信這是一台NAS。 後續將持續介紹，組裝NAS的過程和注意事項。 累計閱讀量次]]></content>
+      <categories>
+        <category>專案項目</category>
+      </categories>
+      <tags>
+        <tag>NAS</tag>
+        <tag>備份</tag>
+        <tag>硬碟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【開箱】Anne Pro 2 安妮藍牙機械鍵盤]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E9%96%8B%E7%AE%B1%E3%80%91Anne%20Pro%202%20%E5%AE%89%E5%A6%AE%E8%97%8D%E7%89%99%E6%A9%9F%E6%A2%B0%E9%8D%B5%E7%9B%A4.html</url>
+    <content type="text"><![CDATA[雖然使用多年的機械鍵盤還沒壞掉，但是隨著家中電腦設備的增加，桌面是已經無法擺放更多的鍵盤了，因此這次購入新的鍵盤 - Anne Pro 2 安妮藍牙機械鍵盤。 前言購入新的鍵盤是為了提升效率，隨著電腦設備的增加，以應付設備的連結問題，我決定試試看本次的主角 - Anne Pro 2 安妮藍牙機械鍵盤。 選擇作為一個文字工作者及日常編程需要，目前工作室中至少有3台電腦、1台手機、1台平板同時運行著。除了數量問題之外，系統的複雜性也是問題，Mac OS, Windows 8/10, 安卓系統, Ubuntu系統等，光是解決兼容性問題絕對是個大工程。同時一個件鍵盤根本無法連結到所有設備，因此選擇上就出現了相當大的難題。 我認為挑選鍵盤應該可以從幾個方面考慮，畢竟鍵盤數量眾多，花費太多時間在選擇上實在不是個聰明之舉： 使用場景 習慣 實用性 使用場景使用場景很重要，例如我的使用場景包含多設備、多系統使用同一個鍵盤，並且可以快速切換。那麼你的使用場景是什麼？你可以問問自己下列幾個問題： 有多系統的需求嗎？Mac OS + Windows的使用場景； 有多設備的需求嗎？例如安卓 + PC等； 有沒有玩遊戲的需求？射擊遊戲、即時戰略等； 秒答上面的問題，你大概就知道你的使用場景了。展開來說，多系統的需求需要鍵盤可以修改cmd/alt的位置（有時候甚至包含FN）；多設備需求如果單一設備包含手機的話，勢必需要選擇藍芽鍵盤；遊戲需求的話，則需要有線連接，減低延遲。 定位需求之後，你會發現，需要（對，不是想要）購買什麼鍵盤就很清楚了。例如想要連接手機和有打遊戲的需求，這個時候你就需要一個同時支援無線和有線的鍵盤。 習慣和挑選滑鼠相同，個人習慣很重要，畢竟鍵盤不容易損壞，會相伴你一段時間，科技是為人服務的。 有攜帶的需求嗎？喜歡帶著鍵盤到咖啡廳辦公嗎。 最習慣的按鍵數量？104/96/87/82/61鍵等，不要懷疑，鍵盤真的有那麼多不同數量 習慣筆電鍵盤還是機械鍵盤？在不怕吵鬧的環境，極度推薦機械鍵盤 有線還是無線鍵盤？ 當然還有很多習慣選項，例如對於鍵盤顏值在乎不在乎，或是機械鍵盤的軸體、多鍵無衝設計等。這邊只列出最重要的幾點，如果這些點不滿足，基本上日常使用都會有問題。 實用性鍵盤功能琳瑯滿目，自定義功能鍵、巨集，鍵盤發光等，老實說你真的會用到嗎？如果當使用場景和習慣被滿足後，我才建議你去考慮那些花哨的功能。 例如無線鍵盤的發光，你必須同時權衡美觀和鍵盤續航，不過相信我你應該對於續航比較在意；另外自定義功能鍵、巨集功能，基本上可以用軟體實現。因此你真正需要的東西才是最實用的。 技術規格太專業的技術規格不寫，只寫你感覺的到的，畢竟老話一句，科技服務生活。 按鍵數量：61（小鍵盤適合攜帶） 軸體：佳達隆青/紅軸/茶軸, 櫻桃茶軸可選（紅軸偏軟） 連接方式：有線（Type-C） + 藍芽BLE 5.0（實體開關，可切換4組設備） 電池容量：1900mAh（iPhone 11大約3110mAh） 支援系統：Windows、Mac（設定軟體可支援多系統） 特點一些加分選項，作為是同類商品選擇的考慮項目： 可定義RGB - 自己定義鍵盤燈光顏色、模式 可定義所有鍵盤的配置 - 改變鍵盤位置 可錄製巨集 - 組合鍵錄製，加快日常效率 具有Fn1, Fn2, Magin Fn - 3個Fn鍵，讓你的鍵盤變成3組不同位置的鍵盤 開箱開始開箱了，一起看看吧 正面直白的一個鍵盤圖案，從中國進口到日本，外盒有點損壞 背面介紹了重點功能 配件包含本體、說明書、拔鍵器、USB Type-C線、其他顏色的鍵帽 鍵帽做工細緻，沒有明顯的毛邊，透光鍵帽 多層次按鍵設計，可使用Fn1, Fn2切換功能 背面有藍芽開關，經過實驗，藍芽和有線模式無法同時使用。 燈效模式，可以自定義顏色 設定外觀欣賞完之後就來進行設定，首先請自行下載設定軟體。 基礎設定，包含鍵盤按鍵位置、藍芽、敏感度等設定 鍵盤按鍵位置設定，有默認、FN1、FN2、TAP不同層可以選擇，換句話說，一個按鍵可以有4種不同的輸出 燈效設定，可以依據按鍵獨立配置顏色 錄製巨集功能，可以自行研究 後記使用過鍵盤之後，除了比之前的青軸相比軟了點，並沒有什麼特別不能接受的問題。新的鍵盤需要記憶新的按鍵設定，這估計是很多人不習慣的。 老實說因為變成61鍵的大小，少了數字鍵盤確實不方便。但是多層的設計的確又增加了許多的可能性，以前個人習慣搭配karabiner使用，通過電腦中各式各樣的python、Shell腳本完成巨集的功能。巨集功能和多層設計，減少了重複的動作和減少手指移動的距離，確實增加了效率。 這個鍵盤功能和可玩性真的非常高，如果有時間的話，可以另外撰寫如何搭配karabiner使用及如何解決Mac OSX下Magic Fn的問題。 註：本文非業配 累積閱讀量次]]></content>
+      <categories>
+        <category>開箱文</category>
+      </categories>
+      <tags>
+        <tag>電子產品</tag>
+        <tag>開箱文</tag>
+        <tag>Obins</tag>
+        <tag>鍵盤</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【技術】你了解自己嗎 - 談Google廣告設定]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E6%8A%80%E8%A1%93%E3%80%91%E4%BD%A0%E4%BA%86%E8%A7%A3%E8%87%AA%E5%B7%B1%E5%97%8E%20-%20%E8%AB%87Google%E5%BB%A3%E5%91%8A%E8%A8%AD%E5%AE%9A.html</url>
+    <content type="text"><![CDATA[今天不談技術，我們談談「你」。你了解自己的喜好、個性嗎？也許Google廣告更加了解你也說不定。 被追蹤的搜索數據你是否有發現當你在搜索引擎搜尋「旅行」之後，你身邊的廣告突然都變成和旅行相關？機票、住宿、優惠、攻略等資訊不斷出現在你看到的廣告中。試試其他關鍵字，例如「嬰兒」的話會怎麼樣呢，學前教育、育兒聖經、副食品等廣告會逐漸進攻你的生活。 為什麼會這樣呢？實際上，你的搜索記錄會被搜索引擎（例如Google）採集，而其他公司將會支付Google廣告費用，最終這些廣告將會準確的出現到我所瀏覽的頁面中，例如Facebook、下次的搜尋結果、免費APP中的廣告等地方，無形中我的決策可能就被影響了。 被影響的決策聽起來挺正常的是吧？確實如此，對人們來說一定程度上提供了便捷和更人性化的服務，但是如果這樣的數據，被利用在選舉、法院判決、學術研究會怎麼樣？ 廣告暗示你選擇某個候選人？那麼真的還民主嗎？廣告影響法官所看到的資訊，最後下意識的影響判決？撰寫論文搜集資訊時，部分資訊被優先顯示，而部分被刻意隱藏，那麼算是真的學術探討嗎？上述的情形並不一定會發生，但是如果發生了你認為如何？ 查看自己的廣告屬性我們一起來了解自己吧！ 打開Google廣告設定看看自己的廣告屬性。登入帳號後，你可以選擇開啟或關閉Google廣告採集功能 下面的資訊顯示與你相關的廣告標籤，有沒有發現其實Google更加了解你 以我的數據為例（部分隱藏了），相機、美容、健身、音樂串流等，都是最近感興趣的事物，因此都不意外的出現在廣告標籤中，也許你會發現，Google甚至還知道你的行業、大概年齡等資訊。對於有多個帳號或是行銷人員，Google採集的數據會不太精確，但是至少可以簡單的觀察自己，同時也知道到底Google會推送什麼廣告給你。 當採集到這些資訊後，Google就可以提供廣告投放服務，例如相機公司購買廣告時，我就可能成為被投放的目標。廣告標籤的數量和維度取決於是否能夠精準定位到目標用戶，以微信廣告為例，至少包含了地域、人口屬性、興趣行為、手機設備等大維度，其中各個維度又分為不少子項目，至於Google廣告有多少維度，大家可以自己仔細思考下，這裡不展開細說。微信廣告提供地域、人口屬性、興趣行為、手機設備等不同廣告投放選擇。 為何要知道廣告屬性既然你知道自己的廣告屬性了，那麼你可能會問：這跟我有什麼關係？其實你可以： 理解自己的個性和好奇的領域 - 幫助未來進行任何決策； 理解自己可能受到那些廣告影響 - 避免衝動性消費； 創造共同話題 - 如果你有幸看到別人的廣告設定，那麼你可以從這些標籤開啟話題； 其他 - 影響對方行為、取得商業成功等，思考一下，如果你能影響對方行為，還有什麼事情無法完成嗎？ 如何避免被影響看到這裡你可能覺得很可怕，然而實際上在獲得免費服務或是享受科技的方便時，你就無法避免展示使用習慣，進而透露出你的決策行為。但是還是有幾個方法可以減低這些廣告對你的影響： 屏蔽廣告 - 市面上有很多屏蔽廣告的軟體，你無法看到廣告，自然能夠降低被影響的機率； 減少數據採集 - 儘量使用無痕模式瀏覽； 隱藏個人身分 - 查詢資訊時，不登入帳號； 思考 - 決策前思考自己是否被影響，或是近來所接觸的資訊是否過於集中某個領域。 掌握自己的數據，才能掌握自己的人生，共勉之。 累計閱讀量次]]></content>
+      <categories>
+        <category>技術分享</category>
+      </categories>
+      <tags>
+        <tag>Google</tag>
+        <tag>Ads</tag>
+        <tag>隱私</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【開箱】羅技二代旗艦 Logitech MX Master 2S]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E9%96%8B%E7%AE%B1%E3%80%91%E7%BE%85%E6%8A%80%E4%BA%8C%E4%BB%A3%E6%97%97%E8%89%A6%20Logitech%20MX%20Master%202S.html</url>
+    <content type="text"><![CDATA[多年前服役的滑鼠在一個夜黑風高的夜晚，一動也不懂離我而去，才有了本篇的開箱 - Logitech MX Master 2 前言多年前服役的滑鼠在一個夜黑風高的夜晚，一動也不懂離我而去，才有了本篇的開箱文。由於前一款滑鼠也是羅技，使用上十分順手，因此就其中的產品線挑選出本次的主角 - Logitech MX Master 2S 滑鼠。 選擇作為一個文字工作者和金融工作者，Excel內基本全數用鍵盤搞定，Markdown可以快速的解決排版問題，對於滑鼠並沒有強烈的訴求。 如果真的要我提供購買滑鼠的建議，那麼我認為你需要考慮： 習慣 預計使用時間 實用性 習慣首先習慣這件事情很重要，科技始終始於人性，不是人去適應產品，是產品去適應人的生活。 常出現的使用場景如何？隨身攜帶滑鼠使用呢？還是一直在桌面前使用？你的手大小如何？大滑鼠適合？還是小滑鼠適合？手持習慣如何？習慣懸空抓住滑鼠？還是喜歡掌握滑鼠？有線好呢？還是無線好？ 回答上面的問題時，直觀很重要。如果思考超過10秒，代表你根本沒注意過自己的使用習慣，那麼這個時候你需要的是養成一個習慣，選擇喜歡的即可。 預計使用時間現在的消費性電子產品損壞率低，一個鍵盤、滑鼠可以使用上很長的一段時間不出問題，那麼實際上就是你會不會喜新厭舊的問題了。 大部分的滑鼠使用久了按鍵回鬆弛，沒必要勉強自己用那麼久。 鍵盤也是長時間使用下，回彈的速度很變慢或是聲音會有差別（對的，我就是那種使用機械鍵盤很在乎聲音的人）。 基本上滑鼠和鍵盤幾乎2年更換一次，當然如果你喜新厭舊另當別論。 以一個月100元來計算，一年1200元，2年2400元。2400元購買一個滑鼠我認為不過分。 實用性滑鼠功能琳瑯滿目，DPI、LED、自定義功能鍵、巨集等功能非常多，老實說你真的會用到嗎？ 如果你不會用到，而且目前也沒這個使用場景，那麼就不要把錢花在這些功能上。 對我來說：DPI不需要可以自定義，因為我不玩遊戲；LED閃閃發光不需要，也浪費點；自定義功能鍵，不是很必要，有也可以；巨集不需要，已經全部用鍵盤設定完成了。 那麼實際上，你會需要什麼功能呢？ 技術規格太專業的技術規格不寫，只寫你感覺的到的，畢竟老話一句，科技服務生活。 重量：145G（很輕） 連接方式：USB接收器 或 藍芽（接收器丟了沒關係） 支援系統：Windows、Mac、iPad、Linux（多系統，換電腦之後，不用重新買滑鼠） 單次續航時間：70天（用著舒服，不受到限制） 2個滾輪，6個按鍵 有沒有發現其實複雜的技術規格，簡單許多？ 詳細規格看這裡 特點如果你真的想要看特點，那麼我也寫幾個吧。這幾個對我來說是購買選擇時的加分項目，可有可無。 有段/無段飛梭滾輪 可以配對3組設備 電量指示燈 Flow功能 - 滑鼠可以跨系統使用，同時可以在同個區域網絡內用滑鼠複製貼上東西 自定義功能鍵 開箱開始開箱了，一起看看吧 很有隻質感的箱子，本次是在日本購買的 背面介紹了Flow的功能，可能自由的在不同電腦切換，複製貼上檔案。不過至少我是沒成功嘗試出來，估計是因為延伸螢幕的關係。 內部介紹了軟體可以設定各個按鍵的功能，但是就是沒找到下載的地方。需要自己Google一下。 全部包含滑鼠、USB接收器、micro USB充電線（嗯…不是TypeC）、保固卡 側面來一張，滾輪、上一頁/下一頁、電源狀態燈、還有一個隱藏的按鈕。 前面中規中矩，有個Logi的Logo，不知道會不會被磨掉。滾輪和設定有段無段的按鍵，無段真的很好玩，只是實際上使用機會不高。 後面突起，人體工學設計，輕鬆掌握滑鼠，手不必懸空使用。 背面的電源鍵和配對按鈕，共計可以配對3個裝置。短按切換，長按3秒進入配對模式。 小巧的接收器，Made in China，不要弄丟了，雖然也可以用藍芽配對，但接收器還是比藍芽穩定些。 設定開箱完，接下來是設定，請下載專用的軟體，請依據不同系統選擇。 Windows10版本下載 Mac OS 10.13以上版本下載 有發現左邊滑鼠的隱藏按鍵嗎？我一開始沒發現呢！可以設定不同按鍵的功能 設定滑鼠移動速度、捲動速度等選項 設定好Flow之後的畫面，設定很簡單，軟件裡面有圖形教學。但是我自己是沒成功複製檔案和切換滑鼠。 後記實際上使用滑鼠之後，剛剛的設定都不會再特別調整了，基本上你會忘記它的存在。 長時間使用起來不累，滑鼠摸起來很舒服，滾輪很靈敏，玻璃材質上移動也定位很準確。 唯一的問題就是雖然提供了Flow的功能，但是因為延伸螢幕的關係，沒有成功使用過這個功能呢。 另外開箱過程中，還必須自己去找安裝軟體很不直觀。如果有個簡單的嚮導指示說明書，也許會更好。 這個滑鼠功能特別多，如果沒有嚮導說明，就像是擁有瑞士刀，只會使用刀的功能一樣。 》Amazon購買 》日本樂天購買 累積閱讀量次]]></content>
+      <categories>
+        <category>開箱文</category>
+      </categories>
+      <tags>
+        <tag>電子產品</tag>
+        <tag>開箱文</tag>
+        <tag>羅技</tag>
+        <tag>滑鼠</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【技術】Google Analytics(GA)排除本機流量的5種方式]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E6%8A%80%E8%A1%93%E3%80%91Google%20Analytics(GA)%E6%8E%92%E9%99%A4%E6%9C%AC%E6%A9%9F%E6%B5%81%E9%87%8F%E7%9A%845%E7%A8%AE%E6%96%B9%E5%BC%8F.html</url>
+    <content type="text"><![CDATA[Google Analytics(GA)其實已經內建流量過濾的功能，但是在實際使用上還是有些不方便，這邊提供教學教你如何過濾掉自己的瀏覽數據。 為了避免數據不准確，一開始設定Google Analytics的時候，就必須將自己及公司同事的瀏覽數據過濾掉。 如何設定GA本身就已經內建設定工具，你可以從左下角的【設定】》【賬戶】》【所有篩選器】進入設定頁面，根據瀏覽來源不同： 來自ISP網域的流量 來自IP位址的流量 子目錄獲得的流量 主機名稱獲得的流量 設定過濾非目標流量。 實際問題但是如果電腦是浮動IP，也就是說IP會隨著時間而改變，那麼即使設定了過濾器，基本上也是徒勞無功，該如何解決？ 解決方式解決方式有 5 個： 使用運算規則式 使用外褂 Google Analytics (分析) 不透露資訊外掛程式 IT部門屏蔽GA流量 調整GA代碼 設定本地Host 第 1 種方式對於一般人有困難，但是比較有趣的是，它可以過濾到ipv6的流量，但是ipv6使用的人數不多，可能未來這個功能才會派上用場。 第 2 種方式對於個人來說是最方便的，直接安裝即可，這樣就會過濾掉自己的流量了。如果你沒有編程能力，建議直接選這個吧。 但是如果公司是浮動流量的話，那麼你只能拜託大家一個一個安裝了。 第 3 種方式如果公司有IT部門，而且大家是共用WIFI的話，可以直接在WIFI路由器設定Host，屏蔽掉GA的流量。這種方式最簡單，但是前提是你的IT部門必須知道他要做什麼（不要懷疑，很多IT部門不知道這個東西） 第 4 種方式我覺得是最酷的方式，但是並非屏蔽所有流量，只屏蔽了網站在本地測試時候的流量。換句話說，如果網站上線後，你自己瀏覽的行為數據也會記錄。 如果你是一個跟工程師關係很好的產品經理（雖然工程師都想要殺產品祭天？）那麼極度推薦這個方式。 請他們添加代碼的時候，判斷是否為本地流量後，排除統計 1234567&lt;script&gt;var host = window.location.hostname;if(host != &quot;localhost&quot;)&#123; // your google analytic code here&#125;&lt;/script&gt; 第 5 種方式適合工程師，直接修改本地Host文件，屏蔽GA瀏覽，以MAC設定為例： 123456789# 修改 Host文件jk@local:~$ vi /etc/hosts# 添加一下代碼後，存檔關閉# My filters127.0.0.1 www.google-analytics.com127.0.0.1 google-analytics.com127.0.0.1 ssl.google-analytics.com 這種方式好處是你不必安裝插件即可完成。 後記介紹了那麼多方式，想要簡單設定的話，直接選第 2 種安裝插件的方式吧！ 點擊安裝》Google Analytics (分析) 不透露資訊外掛程式 如何掌握自己的行為數據，一直是一個重要但是大家不關注的議題。自己的行為數據被蒐集後，確實可以得到更完善的服務，何必要管理？ 細思恐極，如果你的行為被記錄蒐集後加以運用，當你要買什麼的時候，你可以簡單獲得，當你不要買什麼的時候，可以透過長時間的廣告投放，讓你逐漸改變喜好，最後決定購買。 這樣的事情如果發生的話，你不覺得非常可怕嗎？ 累計閱讀量次]]></content>
+      <categories>
+        <category>技術分享</category>
+      </categories>
+      <tags>
+        <tag>SEO</tag>
+        <tag>Google Analytics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【經驗】購買記憶卡翻車記錄]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E7%B6%93%E9%A9%97%E3%80%91%E8%B3%BC%E8%B2%B7%E8%A8%98%E6%86%B6%E5%8D%A1%E7%BF%BB%E8%BB%8A%E8%A8%98%E9%8C%84.html</url>
+    <content type="text"><![CDATA[因為想要改裝iPod Classic的緣故，上網購買了一張Microsd的記憶卡.沒想到在9012年居然還有擴容卡的存在!記錄一下這次的檢測記錄，並且提供檢測方式供大家參考。 什麼是擴容卡擴容卡是指用非法手段（軟件）讓容量小的存儲卡在電腦上顯示出的容量變大（比如8G的顯成128G），這些多出來的內存是不能正常使用的，這種卡存入的文件只要超過實際的容量，多出來容量的文件不可用（如音視頻損壞，圖片打不開，手機安裝應用提示應用未安裝），數據無故丟失損壞，造成損失。 奇怪的記憶卡沒錯，就是這次的主角！一張外觀 128 GB的小米記憶卡。等等？小米記憶卡？小米也出記憶卡了？基本上就是這點，讓我一到手就測試，不測還好… 到手了，蘋果電腦Disk Utility 基本看一下，誒？ 134.21GB？這就是第二個疑點了。電腦的比較大（誤？於是乎就開始了這次的檢測~ 檢測開始本次測試使用了以下2種工具，基本上其他測試軟件都已經失效，現在的擴容卡已經能夠欺騙測試軟件了。 h2testw - Windows 本次的主角 - h2testw，由國外工程師開發非常輕量的軟件，點選 Select target，選擇自己的記憶卡後（建議先把新的卡片格式化），點擊 Write + Verify即可開始測試。 測試中會顯示寫入了多少測試數據、經過時間（預計花費時間）、目前寫入速度等資訊。基本上從這裡就可以判斷是否是擴容卡了。 從寫入速度來看，是否與外觀表示的記憶卡規格匹配，速度10MB/s基本上就是擴容卡了。一般擴容卡都會使用廉價卡片，無法有較好的表現。 不必把整張記憶卡寫滿，非常消耗時間（128GB的卡大約花費5個小時)。一般擴容卡都會使用容量小的卡片，因此可以依據標示容量的 1/2 作為測試值，如記憶卡是128GB，就可以只寫入64GB的數據作為參考。 寫入一定數據之後，選擇Abort跳出。 點擊Verify，開始校驗數據，如果運氣好，應該是什麼錯誤都沒發生。運氣不好就會出現和上圖一樣的錯誤：買到擴容卡了！ 點擊下載 》h2testw f3 - Mac OSX這是國外作者寫的測試軟件 f3，可參考此 Github專案 - F3 這邊就不展開教學了。 手動測試擴容卡將原本小容量的卡片，偽裝成大容量，那麼檔案的安全性一定有問題。因此手動也可檢測出來。 檢測步驟如下： 格式化記憶卡 - exfat, FAT32都可。 準備一個檔案3GB左右的檔案，重複存入記憶卡，如16GB的，至少可以存入5個相同的檔案。 檔案命名為file1, file2, file3…. 以此類推。 退出記憶卡，重新插入電腦。 讀取剛剛存入的檔案，如果是擴容卡，那麼一定有檔案是無法開啟或損壞的。 後記第一次遇到這樣的事情，才發現原來記憶卡這種不太獲利的產品居然出現這種謀取暴利的野路子。如果真的要購買記憶卡，建議還是從正規渠道購買，畢竟省了錢，丟了數據得不償失。 累計閱讀量次]]></content>
+      <categories>
+        <category>編程學習</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>測試</tag>
+        <tag>電子產品</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【項目】安卓手機模擬點擊-探探為例]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E9%A0%85%E7%9B%AE%E3%80%91%E5%AE%89%E5%8D%93%E6%89%8B%E6%A9%9F%E6%A8%A1%E6%93%AC%E9%BB%9E%E6%93%8A-%E6%8E%A2%E6%8E%A2%E7%82%BA%E4%BE%8B.html</url>
+    <content type="text"><![CDATA[本篇文章介紹Adb Shell的一些實際操作，包含獲取安卓手機點擊坐標、開啟安裝的APP等，並以探探為例子，將上述技術結合。咱們開始吧！ ADB是什麼？ADB的全稱為Android Debug Bridge，就是起到調試橋的作用。通過ADB我們可以在Eclipse中方面通過DDMS來調試Android程序。 看不懂對吧？沒關係，一句話來說就是：*用來操作（調試）android設備的一套指令集。 * 安裝ADB這麼好用的工具，首先咱們先安裝，此處以MAC OSX為例子 1234567# 通過 Homebrew 安裝jk@local:~$ brew cask install android-platform-tools# 安裝成功後，測試是否正常jk@local:~$ adb devicesList of devices attached12d6ac34 device # 有設備顯示就是正常，如果沒顯示的話，請百度“開啟安卓開發者模式”，先把調試模式打開。 獲取點擊坐標（16進制）123456789101112131415161718# 進入手機調試終端jk@local:~$ adb shellXXXX:/ $ # XXXX會顯示你的設備名稱# 開始獲取手機事件，接著點擊你想定位的位置，畫面會持續跑出很多數據。# 想停止獲取可以鍵盤 Crtl + C 退出XXXX:/ $ getevent -l/dev/input/event2: EV_ABS ABS_MT_TRACKING_ID 000056f7/dev/input/event2: EV_KEY BTN_TOOL_FINGER DOWN ## 這個是你手指按下屏幕的事件/dev/input/event2: EV_ABS ABS_MT_POSITION_X 0000039c ## 這個是點擊的X軸，16進位/dev/input/event2: EV_ABS ABS_MT_POSITION_Y 00000263 ## 這個是點擊的Y軸，16進位/dev/input/event2: EV_SYN SYN_REPORT 00000000/dev/input/event2: EV_ABS ABS_MT_TOUCH_MINOR 00000006/dev/input/event2: EV_SYN SYN_REPORT 00000000/dev/input/event2: EV_ABS ABS_MT_TRACKING_ID ffffffff/dev/input/event2: EV_KEY BTN_TOOL_FINGER UP ## 這個是你手指離開屏幕的事件/dev/input/event2: EV_SYN SYN_REPORT 00000000 轉換點擊坐標（10進制）剛剛獲取的坐標為16進制，此時需要轉換為10進制方便後續使用。 點擊 》 在線裝換工具 以剛剛獲取的16進制 (x, y) = (0000039c, 00000263)為例，裝換後10進制 (x, y) = (924, 611) 模擬ADB點擊12# 開始模擬點擊，使用轉換的10進制坐標jk@local:~$ adb shell input tap 924 611 是不是成功了呢？成功的話，應該就跟你點擊的動作是相同的，只是差別在於現在你是以下指令的方式點擊。 點擊應用 - 探探為例探探交友軟件是個非常好的研究對象，首先如畫面所示，用戶需要點擊喜歡或不喜歡來獲得配對機會。這個行為就可以透過剛剛學習到的點擊來試驗，配合上Python的腳本後甚至可以達到自動化的目標。 需要點擊喜歡和不喜歡。 分析一下具體思路： 利用Python調用終端指令，進而調用ABD 重複執行點擊 控制點擊的速度 可參考下列程序碼： 12345678910111213141516171819# 引入模組import osimport timeimport random#點擊喜歡tap1 = &apos;adb shell input tap 725 1785&apos;#點擊不喜歡tap2 = &apos;adb shell input tap 368 1791&apos;# 重複點擊150次for i in range(150): rd = random.random() # 設置隨機數 if rd &gt;= 0.5: # 隨機數大於等於0.5時，點擊喜歡 os.system(tap1) # 調用ADB指令 else: # 隨機數小於0.5時，點擊不喜歡 os.system(tap2) # 調用ADB指令 time.sleep(0.03) # 控制點擊的速度，300毫秒點擊一次 具體成功如上。 後記可改良部分： 執行程序的時候，直接打開探探APP 判斷圖片後，選擇點擊喜歡/不喜歡 累計閱讀量次]]></content>
+      <categories>
+        <category>專案項目</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Shell</tag>
+        <tag>安卓</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【項目】黑群暉修改MAC地址]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E9%A0%85%E7%9B%AE%E3%80%91%E9%BB%91%E7%BE%A4%E6%9A%89%E4%BF%AE%E6%94%B9MAC%E5%9C%B0%E5%9D%80.html</url>
+    <content type="text"><![CDATA[使用自組的黑群暉已經一陣子了，系統是使用網絡上常見的DS918二合一引導盤，省去了另外使用U盤的麻煩。 然而唯一美中不足的地方：無法使用常見的網絡喚醒功能（WOL），本次教學將一步一步教你如何達成目標。 事前準備 筆記本（蘋果，Windows皆可，只要能夠使用ssh功能即可） 黑群暉（安裝完成，已經可正常使用） 網絡（os. 這不是廢話？但請注意筆記本和黑群暉必須在同個局域網內） 教學開始ssh連接黑群暉筆記本打開終端機（Terminal），輸入下列指令： 1234567891011121314# 注意192.168.xxx.xxx 請修改成自己黑群暉的地址jk@local:~$ ssh admin@192.168.xxx.xxx# 連接成功admin@DS918Plus:~$# 以root執行admin@DS918Plus:~$ sudo -i# 輸入密碼後回車（不會顯示輸入的密碼）Password:# 以root登入成功root@DS918Plus:~# 掛載開機設定檔案123456789101112131415# 建立臨時掛載位置root@DS918Plus:~# mkdir /tmp/boot# 移動到本機設備目錄root@DS918Plus:~# cd /dev# 掛載開機區，注意指令中的sdb4依據硬件可能為不同root@DS918Plus:/dev# mount -t vfat sdb4 /tmp/boot# 掛載成功後移動到開機區root@DS918Plus:/dev# cd /tmp/boot/grub/# 查看開機區檔案root@DS918Plus:/tmp/boot/grub# lsfonts grub.cfg grubenv loader locale x86_64-efi 修改grub.cfg設定123456789101112131415161718# 修改grub.cfg設定（此處使用vi編輯器，可使用自己習慣的編輯器進行修改）root@DS918Plus:/tmp/boot/grub# vi grub.cfg# 找到文件中與下列相似的內容並修改set sn=1780PDN21xxxxset mac1=001132xxxxxxset mac2=001132xxxxxxset rootdev=/dev/md0# 修改完成範例set sn=1780PDN216002 # 通常不需修改set mac1=001132e12242 # 單網卡修改此處即可，實體位置可參考主板上實體網卡set mac2=001132xxxxxx # 雙網卡可修改此處set rootdev=/dev/md0 # 維持不變# 重新啟動，完成root@DS918Plus:/tmp/boot/grub# reboot 遠端開機在局域網內，可使用任意網絡喚醒工具，如手機APP、指令等，此處以python腳本為例，筆記本打開終端機（Terminal），輸入下列指令： 12345678910# 安裝套件wakeonlanjk@local:~$ pip3 install wakeonlan# 撰寫腳本jk@local:~$ python3Python 3.7.6 (default, Dec 30 2019, 19:38:28)[Clang 11.0.0 (clang-1100.0.33.16)] on darwinType &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.&gt;&gt;&gt; from wakeonlan import send_magic_packet&gt;&gt;&gt; send_magic_packet(&apos;02.11.32.2A.03.E9&apos;) # 此處MAC地址為黑群暉的地址 完成上述設定之後，即可遠端喚醒。 累計閱讀量次]]></content>
+      <categories>
+        <category>編程學習</category>
+      </categories>
+      <tags>
+        <tag>腳本</tag>
+        <tag>NAS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【技術】Mac Wifi開關腳本]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E6%8A%80%E8%A1%93%E3%80%91Mac%20Wifi%E9%96%8B%E9%97%9C%E8%85%B3%E6%9C%AC.html</url>
+    <content type="text"><![CDATA[上班族在通勤路上使用筆記本電腦的時候，一定會遇到和我相同的問題。 在 Wifi 開啟的情形下，只要有新的 Wifi 可連接，就會跳出通知信息。其次就是 Wifi 耗電，使得電腦的續航力下降。 可以使用下列腳本可以快速解決問題，這個腳本將讓你可以快速切換 wifi 狀態，解放你的雙手。 初始設定首先打開終端（terminal）切換到桌面（Desktop）建立腳本，當然你也可以選擇在其他地方建立腳本。 12cd ~/Desktoptouch wifi.sh 輸入完畢後，在桌面會有一個 wifi.sh的檔案，請使用文字編輯器（TextEdit）打開，輸入下列指令，存檔。 1234567#!/bin/bashif [[ `networksetup -getairportpower en0` == *On ]]then networksetup -setairportpower en0 offelse networksetup -setairportpower en0 onfi 切換到剛剛的終端，將文件賦予執行權限，並嘗試執行 12chmod +x ~/Desktop/wifi.sh./wifi.sh 執行成功之後，你會發現你的 wifi 已經關閉了。 日常使用開啟終端，輸入 ~/Desktop/wifi.sh 之後，就可以使用了。 如果覺得指令太長，可以使用下列方式建立 alias 解決。 123456789vi ~/.zshrc# 光標移動到最後一行，輸入 i 插入下列指令alias wifi=&apos;~/Desktop/wifi.sh&apos;# 鍵盤按下 Esc，再輸入 :wq! 存檔，輸入指令生效source ~/.zshrc 之後就可以在終端輸入 blog 執行指令了，這個腳本如果配上 Alfred 使用後連開啟終端的步驟都可以節省了，下回專門撰寫一篇教學供大家參考。 累計閱讀量次]]></content>
+      <categories>
+        <category>編程學習</category>
+      </categories>
+      <tags>
+        <tag>腳本</tag>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【項目】Hexo 新增分類及標籤]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E9%A0%85%E7%9B%AE%E3%80%91Hexo%20%E6%96%B0%E5%A2%9E%E5%88%86%E9%A1%9E%E5%8F%8A%E6%A8%99%E7%B1%A4.html</url>
+    <content type="text"><![CDATA[初次建立 Hexo 靜態博客的時候，一直在尋找分類和標籤是如何建立的。以前使用 Wordpress 建站的時候，這個功能很直觀直接設定即可，現在則必須自行設定。 本篇將教你如何新增分類及標籤，並在撰寫新文章的時候使用。 創建分類首先在終端 Hexo 根目錄建立分類頁面 1hexo new page categories 此時會在 /source/categories/ 目錄下生成 index.md 檔案。 上面的這個操作是利用 Hexo 創建一個頁面，該頁面是以 page 的形式展現。平時我們寫博客新增文章的時候，則是以 post 的形式新增文章。 將檔案內容修改如下： 12345678910111213---# 這個是頁面展示的時候的標題，可自行修改title: 文章分類# 時間自動生成，不必理會date: 2019-09-20 20:33:35# 填寫 categories 即可type: categories# 如果有使用評論插件（如：Disqus），選擇 false 後，該頁面不會展示評論插件。comments: false--- 上面設定完之後，基本上功能已經開通完成。那麼如何在博客上顯示頁面呢？這邊以 Next 主題為例子。 顯示分類頁面修改 Hexo Next主題的設定文件，路徑為 theme/next/_config.yml，找到 menu 添加 categories 項目即可。 123menu: tags: /tags/ || tags categories: /categories/ || th 當然別忘了修改後存檔，重新生成靜態博客. 12hexo generatehexo deloy 完成後效果 文字撰寫添加分類新增完分類後，撰寫文章的時候就可以使用了 撰寫文章的時候，只要加入 categories: 即可。添加的方式有 2 種，可以參考下列範例，當文章屬於多個分類的時候使用方式一，單一分類的時候使用方式二。 12345678910111213---title: Hexo 新增分類及標籤# 方式一categories:- 編程學習- Hexo# 方式二categories: 編程學習date: 2019-09-24 20:15:40--- 具體效果可參考本篇文章~ 創建標籤首先在終端 Hexo 根目錄建立分類頁面 1hexo new page tags 此時會在 /source/tags/ 目錄下生成 index.md 檔案。 上面的這個操作是利用 Hexo 創建一個頁面，該頁面是以 page 的形式展現。平時我們寫博客新增文章的時候，則是以 post 的形式新增文章。 將檔案內容修改如下： 12345678910111213---# 這個是頁面展示的時候的標題，可自行修改title: 文章分類# 時間自動生成，不必理會date: 2019-09-20 20:33:35# 填寫 tags 即可type: tags# 如果有使用評論插件（如：Disqus），選擇 false 後，該頁面不會展示評論插件。comments: false--- 上面設定完之後，基本上功能已經開通完成。那麼如何在博客上顯示頁面呢？這邊以 Next 主題為例子。 顯示標籤頁面修改 Hexo Next主題的設定文件，路徑為 theme/next/_config.yml，找到 menu 添加 tags 項目即可。 123menu: tags: /tags/ || tags categories: /categories/ || th 當然別忘了修改後存檔，重新生成靜態博客. 12hexo generatehexo deloy 完成後效果 文字撰寫添加標籤新增完標籤後，撰寫文章的時候就可以使用了 撰寫文章的時候，只要加入 tags: 即可。添加的方式有 2 種，可以參考下列範例，當文章屬於多個標籤的時候使用方式一，單一標籤的時候使用方式二。 12345678910111213---title: Hexo 新增分類及標籤# 方式一tags:- 編程學習- Hexo# 方式二tags: 編程學習date: 2019-09-24 20:15:40--- 具體效果可參考本篇文章~ 有沒有發現無論是分類還是標籤，兩種添加的方式機會相同？ 沒錯，這個就是 Hexo 的美妙，另外其實常見的 404 錯誤頁面，也可以用類似的方式生成哦。下次再撰寫一篇來詳細解說吧。 累計閱讀量次]]></content>
+      <categories>
+        <category>專案項目</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【項目】Hexo建立個人主頁]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E9%A0%85%E7%9B%AE%E3%80%91Hexo%E5%BB%BA%E7%AB%8B%E5%80%8B%E4%BA%BA%E4%B8%BB%E9%A0%81.html</url>
+    <content type="text"><![CDATA[初次使用 Hexo 建立完靜態博客的時候，默認的首頁就是博客文章，本篇文章教你如何將首頁設定成自己的靜態頁面。 達成效果當初始化 Hexo 靜態博客部署之後，輸入網址之後（你的github賬號.github.io）通常你會直接進入博客主頁。 但是，如果我希望優先展示個人介紹頁面、個人作品集或是落地頁的話，該如何處理呢？ 先進入落地頁： 點擊 Blog 之後才進入博客： 準備內容 靜態頁面 Hexo 站點設定檔（_config.yml） 具體操作修改 Hexo 站點設定檔找到站點設定檔案，一般在 Hexo 根目錄下，進行修改。 123456url: http://indeedinvest.info/blog/ # 輸入你的網址root: /blog/ # 修改成 /blog/# Directorysource_dir: sourcepublic_dir: public/blog/ # 修改成 public/blog/ 重新生成 Hexo在終端 Hexo 根目錄路徑下輸入下列指令，重新生成靜態博客 12hexo clean # 清除舊檔案hexo generate # 重新生成 確認靜態頁面檔案一個靜態頁面至少包含 index.html 檔案。我的靜態頁麵包含的檔案清單如下： 將所有的檔案複製到 Hexo 目錄下的 public 資料夾，複製成功之後如圖 部署上線經過上述的操作後，你已經可以重新部署。 12hexo generate # 生成檔案hexo deploy # 部署上線 是不是很簡單啊？完成上述的操作之後，進入自己的頁面只要輸入自己的網址即可。 想要進入博客頁面，輸入自己的網址/blog/即可。 這樣的設定能夠讓你輕鬆展示自己的作品集哦。 累計閱讀量次]]></content>
+      <categories>
+        <category>專案項目</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【技術】Pandas 常用基礎教學]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E6%8A%80%E8%A1%93%E3%80%91Pandas%20%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8.html</url>
+    <content type="text"><![CDATA[Pandas 是 Python 中用於處理數據分析的一個套件，提供高效能、簡易使用的資料格式（Data Frame）讓使用者可以快速操作及分析資料。 一般用於金融數據處理及時間序列分析，本篇將介紹幾個常見的使用方式，供讀者參考。 導入 Pandas12345# 導入pandas套件import pandas as pd# 如果沒安裝的話，可在終端輸入指令安裝(Python3)pip3 install pandas 導入數據以 CSV 為例，導入數據常用的參數如下： 範例文件下載 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748df = pd.read_csv( # 文件數據路徑，必填 '~/Desktop/demo.csv', # 數據分隔符，csv文件默認為逗號，選填 sep= ',', # 跳過數據文件第 1 行不讀 # skiprows = 1, # 只讀前 15 行，選填，默認讀取全部數據 nrows = 15, # 指定列為日期格式，選填，默認全部格式為字串 parse_dates = ['OrderDate'], # 指定列設為index，選填，默認 index 為 0，1，2 index_col = ['OrderDate'], # 讀取指定的列數據，選填，默認讀取全部數據 usecols = ['OrderDate', 'Region', 'Rep'], # 讀取數據跳過報錯數據，只載入正確數據，用於臟數據較多的場景 error_bad_lines = False, # 將數據中的null識別為空值 na_values = 'NULL')# 打印結果print(df)Region RepOrderDate2018-01-06 East Jones2018-01-23 Central Kivell2018-02-09 Central Jardine2018-02-26 Central Gill2018-03-15 West Sorvino2018-04-01 East Jones2018-04-18 Central Andrews2018-05-05 Central Jardine2018-05-22 West Thompson2018-06-08 East Jones2018-06-25 Central Morgan2018-07-12 East Howard2018-07-29 East Parent2018-08-15 East Jones2018-09-01 Central Smith 數據概覽12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849# 數據行列print(df.shape)(15, 2)# 數據列名稱print(df.columns) Index(['Region', 'Rep'], dtype='object')# 數據行名稱print(df.index) DatetimeIndex(['2018-01-06', '2018-01-23', '2018-02-09', '2018-02-26', '2018-03-15', '2018-04-01', '2018-04-18', '2018-05-05', '2018-05-22', '2018-06-08', '2018-06-25', '2018-07-12', '2018-07-29', '2018-08-15', '2018-09-01'], dtype='datetime64[ns]', name='OrderDate', freq=None)# 數據列屬性print(df.dtypes) Region object Rep object dtype: object# 數據前 5 行數據print(df.head(5)) Region Rep OrderDate 2018-01-06 East Jones 2018-01-23 Central Kivell 2018-02-09 Central Jardine 2018-02-26 Central Gill 2018-03-15 West Sorvino# 數據後 5 行數據print(df.tail(5)) Region Rep OrderDate 2018-06-25 Central Morgan 2018-07-12 East Howard 2018-07-29 East Parent 2018-08-15 East Jones 2018-09-01 Central Smith# 數據描述 - 用於快速了解數字類型的數據描述print(df.describe()) Region Rep count 15 15 unique 3 11 top Central Jones freq 7 4 數據讀取 - 列123456789101112131415161718192021222324252627282930313233343536373839# 根據列名選取數據，類型為Seriesprint(df['Rep'])OrderDate2018-01-06 Jones2018-01-23 Kivell2018-02-09 Jardine2018-02-26 Gill2018-03-15 Sorvino2018-04-01 Jones2018-04-18 Andrews2018-05-05 Jardine2018-05-22 Thompson2018-06-08 Jones2018-06-25 Morgan2018-07-12 Howard2018-07-29 Parent2018-08-15 Jones2018-09-01 SmithName: Rep, dtype: object# 選取多列，類型為DataFrameprint(df[['Region', 'Rep']])Region RepOrderDate2018-01-06 East Jones2018-01-23 Central Kivell2018-02-09 Central Jardine2018-02-26 Central Gill2018-03-15 West Sorvino2018-04-01 East Jones2018-04-18 Central Andrews2018-05-05 Central Jardine2018-05-22 West Thompson2018-06-08 East Jones2018-06-25 Central Morgan2018-07-12 East Howard2018-07-29 East Parent2018-08-15 East Jones2018-09-01 Central Smith 數據讀取 - 行 - loc12345678910111213141516171819202122232425# 選取指定行，類型為Seriesprint(df.loc['2018-08-15'])Region EastRep JonesName: 2018-08-15 00:00:00, dtype: object# 選取範圍內多行，類型為DataFrameprint(df.loc['2018-04-18':'2018-07-12'])Region RepOrderDate2018-04-18 Central Andrews2018-05-05 Central Jardine2018-05-22 West Thompson2018-06-08 East Jones2018-06-25 Central Morgan2018-07-12 East Howard# 選取範圍內多行、多列，類型為DataFrameprint(df.loc['2018-04-18':'2018-06-08', 'Region':'Rep' ])Region RepOrderDate2018-04-18 Central Andrews2018-05-05 Central Jardine2018-05-22 West Thompson2018-06-08 East Jones 數據讀取 - 列 - iloc```python 選取某列，類型為Seriesprint(df.iloc[0])Region EastRep JonesName: 2018-01-06 00:00:00, dtype: object 選取範圍內列，類型為DataFrameprint(df.iloc[1:3]) # 包含第 1 列，不包含第 3 列，共計顯示 2 列]]></content>
+      <categories>
+        <category>技術分享</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>資料處理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【技術】自動備份 - Time Machine Rsync]]></title>
+    <url>%2Fblog_tech%2F%E3%80%90%E6%8A%80%E8%A1%93%E3%80%91%E8%87%AA%E5%8B%95%E5%82%99%E4%BB%BD%20-%20Time%20Machine%20Rsync.html</url>
+    <content type="text"><![CDATA[撰寫這個腳本前，一直認為自己的檔案不重要，平時沒有養成備份的習慣。直到電腦的硬盤毀損之後，才發現原來平時日常產生出的點滴，還是值得備份的。 简介本腳本可達成MAC OS系統電腦，定期將本地指定資料夾，備份到遠端服務器。 備份方式採用增量備份，使用了Rsync-time-backup 腳本，可以依照時間點回滾回复，與Timemachine達成同樣的備份效果。 系統環境 MAC OS 10.11 以上 Python3.7.0 以上 遠端服務器與本機需先配置免密登錄SSH 設定方式 複製專案到本地git clone https://github.com/Johnny-Kao/Time-Machine-Mac-Backup.git 複製備份腳本Rsync_tmbackup.sh到本地cp Time-Machine-Mac-Backup/rsync_tmbackup.sh /usr/local/bin/rsync_tmbackup.sh 賦予執行權限chmod +x /usr/local/bin/rsync_tmbackup.sh 設定遠端與服務端免密登錄Linux SSH免密登錄 設定排除備份清單 - 參考項目中檔案Exclude.txt格式 設定基本參數 - 修改Backup.py 123456789101112131415161718192021# Log路徑/名稱log_path = &apos;YOUR PATH HERE&apos;# WIFI白名單 - 判定是否為指定局域網wifi_list = [&apos;YOUR WIFI SSID HERE&apos;, &apos;YOUR WIFI SSID HERE&apos;, &apos;YOUR WIFI SSID HERE&apos;]# 備份主程序路徑/不備份路徑（排除清單）exe_path = &apos;/usr/local/bin/rsync_tmbackup.sh&apos;exclude_list_path = &apos;YOUR EXCLUDE TXT FILE HERE&apos;# 遠端服務器ip/遠端服務器使用者（需要設定遠端免密登錄）only_sync_in_local = &quot;F&quot; # 是否強制局域網更新？ T/Fremote_ip_internal = &apos;INTERNAL IP - EX. 192.168.0.1&apos; # 局域網IPremote_ip_external = &apos;EXTERNAL IP - EX. 143.10.10.10&apos; # 公網IPremote_user = &apos;YOUR NAS REMOTE SERVER NAME&apos;# 備份路徑[本地，遠端]backup_path = [ [&apos;LOCAL SOURCE, EX. ~/Downloads&apos;,&apos;REMOTE DEST, EX. /volume3/NAS/MacAirBackup/Downloads/&apos;], [&apos;LOCAL SOURCE, EX. ~/Downloads&apos;,&apos;REMOTE DEST, EX. /volume3/NAS/MacAirBackup/Downloads/&apos;]] 首次執行 python3 Backup.py 首次運行請先參考log檔案 123# 你會發現log中含有下列的指令，如果你有10個備份路徑，log中就會有10個指令。請依照您的設定，依序在本機執行。ssh -p 22 遠端服務器賬戶@遠端服務器IP &apos;mkdir -p -- &quot;/volume3/NAS/MacAirBackup/Downloads&quot; ; touch &quot;/volume3/NAS/MacAirBackup/Downloads/backup.marker&quot;&apos; 添加定期備份功能 crontab -e 待開發清單 復原功能 - 定期、手動 累計閱讀量次]]></content>
+      <categories>
+        <category>技術分享</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Backup</tag>
+        <tag>MAC</tag>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[關於部落格]]></title>
+    <url>%2Fblog_tech%2F%E9%97%9C%E6%96%BC%E9%83%A8%E8%90%BD%E6%A0%BC.html</url>
+    <content type="text"><![CDATA[部落格內容包含日常隨筆、日文學習、程序設計及旅遊遊記。透過文章分享經驗，希望讓你少走彎路，熱享生活。 充滿熱情的金融科技從業人員 = 70% 金融從業人員 + 10% 日文學習者 + 10% 投資交易員 + 5% 數據分析師 + 5% 工程師。 累计阅读量次]]></content>
+  </entry>
+</search>

@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 2px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog_tech/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/blog_tech/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/blog_tech/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog_tech/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog_tech/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog_tech/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog_tech/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="廣告喜好, Google廣告, 廣告設定, 廣告搜集, 數據">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="今天不談技術，我們談談「你」。你了解自己的喜好、個性嗎？也許Google廣告更加了解你也說不定。">
+<meta name="keywords" content="廣告喜好, Google廣告, 廣告設定, 廣告搜集, 數據">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【技術】你了解自己嗎 - 談Google廣告設定">
+<meta property="og:url" content="http://indeedinvest.info/blog_tech/【技術】你了解自己嗎 - 談Google廣告設定.html">
+<meta property="og:site_name" content="編程書簡">
+<meta property="og:description" content="今天不談技術，我們談談「你」。你了解自己的喜好、個性嗎？也許Google廣告更加了解你也說不定。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/Johnny-Kao/blog_tech/blob/master/images/read.jpg?raw=true">
+<meta property="og:image" content="https://github.com/Johnny-Kao/blog_tech/blob/master/images/2020062003.jpg?raw=true">
+<meta property="og:image" content="https://github.com/Johnny-Kao/blog_tech/blob/master/images/2020062004.jpg?raw=true">
+<meta property="og:image" content="https://github.com/Johnny-Kao/blog_tech/blob/master/images/2020062005.jpg?raw=true">
+<meta property="og:updated_time" content="2020-06-20T15:11:44.888Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【技術】你了解自己嗎 - 談Google廣告設定">
+<meta name="twitter:description" content="今天不談技術，我們談談「你」。你了解自己的喜好、個性嗎？也許Google廣告更加了解你也說不定。">
+<meta name="twitter:image" content="https://github.com/Johnny-Kao/blog_tech/blob/master/images/read.jpg?raw=true">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog_tech/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://indeedinvest.info/blog_tech/【技術】你了解自己嗎 - 談Google廣告設定.html">
+
+
+
+
+
+  <title>【技術】你了解自己嗎 - 談Google廣告設定 | 編程書簡</title>
+  
+
+
+
+
+<script>
+  host = window.location.hostname;
+  if(host != "localhost"){
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-168988423-1', 'auto');
+  ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog_tech/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">編程書簡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Program Learning | Unboxing | Project Design</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首頁">
+          <a href="/blog_tech/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章總覽">
+          <a href="/blog_tech/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            文章總覽
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-關於">
+          <a href="/blog_tech/About/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-開箱文">
+          <a href="/blog_tech/categories/開箱文/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            開箱文
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-技術分享">
+          <a href="/blog_tech/categories/技術分享/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            技術分享
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-編程學習">
+          <a href="/blog_tech/categories/編程學習/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            編程學習
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-專案項目">
+          <a href="/blog_tech/categories/專案項目/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            專案項目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-標籤">
+          <a href="/blog_tech/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://indeedinvest.info/blog_tech/blog_tech/【技術】你了解自己嗎 - 談Google廣告設定.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Johnny Kao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog_tech/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="編程書簡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">【技術】你了解自己嗎 - 談Google廣告設定</h2>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-20T22:35:15+09:00">
+                2020-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog_tech/categories/技術分享/" itemprop="url" rel="index">
+                    <span itemprop="name">技術分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog_tech/【技術】你了解自己嗎 - 談Google廣告設定.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="【技術】你了解自己嗎 - 談Google廣告設定.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/Johnny-Kao/blog_tech/blob/master/images/read.jpg?raw=true" alt="read - Unsplash"></p>
+<p>今天不談技術，我們談談「你」。<br>你了解自己的喜好、個性嗎？也許Google廣告更加了解你也說不定。</p>
+<a id="more"></a>
+<h1 id="被追蹤的搜索數據"><a href="#被追蹤的搜索數據" class="headerlink" title="被追蹤的搜索數據"></a>被追蹤的搜索數據</h1><p>你是否有發現當你在搜索引擎搜尋「旅行」之後，你身邊的廣告突然都變成和旅行相關？機票、住宿、優惠、攻略等資訊不斷出現在你看到的廣告中。試試其他關鍵字，例如「嬰兒」的話會怎麼樣呢，學前教育、育兒聖經、副食品等廣告會逐漸進攻你的生活。</p>
+<p>為什麼會這樣呢？實際上，你的搜索記錄會被搜索引擎（例如Google）採集，而其他公司將會支付Google廣告費用，最終這些廣告將會準確的出現到我所瀏覽的頁面中，例如Facebook、下次的搜尋結果、免費APP中的廣告等地方，無形中我的決策可能就被影響了。</p>
+<h1 id="被影響的決策"><a href="#被影響的決策" class="headerlink" title="被影響的決策"></a>被影響的決策</h1><p>聽起來挺正常的是吧？確實如此，對人們來說一定程度上提供了便捷和更人性化的服務，但是如果這樣的數據，被利用在選舉、法院判決、學術研究會怎麼樣？</p>
+<p>廣告暗示你選擇某個候選人？那麼真的還民主嗎？廣告影響法官所看到的資訊，最後下意識的影響判決？撰寫論文搜集資訊時，部分資訊被優先顯示，而部分被刻意隱藏，那麼算是真的學術探討嗎？上述的情形並不一定會發生，但是如果發生了你認為如何？</p>
+<h1 id="查看自己的廣告屬性"><a href="#查看自己的廣告屬性" class="headerlink" title="查看自己的廣告屬性"></a>查看自己的廣告屬性</h1><p>我們一起來了解自己吧！</p>
+<p>打開<a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener">Google廣告設定</a>看看自己的廣告屬性。<br><img src="https://github.com/Johnny-Kao/blog_tech/blob/master/images/2020062003.jpg?raw=true" alt="Google Ads Settings">登入帳號後，你可以選擇開啟或關閉Google廣告採集功能</p>
+<p><img src="https://github.com/Johnny-Kao/blog_tech/blob/master/images/2020062004.jpg?raw=true" alt="Google Ads Settings details">下面的資訊顯示與你相關的廣告標籤，有沒有發現其實Google更加了解你</p>
+<p>以我的數據為例（部分隱藏了），相機、美容、健身、音樂串流等，都是最近感興趣的事物，因此都不意外的出現在廣告標籤中，也許你會發現，Google甚至還知道你的行業、大概年齡等資訊。對於有多個帳號或是行銷人員，Google採集的數據會不太精確，但是至少可以簡單的觀察自己，同時也知道到底Google會推送什麼廣告給你。</p>
+<p>當採集到這些資訊後，Google就可以提供廣告投放服務，例如相機公司購買廣告時，我就可能成為被投放的目標。廣告標籤的數量和維度取決於是否能夠精準定位到目標用戶，以<a href="https://ad.weixin.qq.com/guide/344" target="_blank" rel="noopener">微信廣告</a>為例，至少包含了地域、人口屬性、興趣行為、手機設備等大維度，其中各個維度又分為不少子項目，至於Google廣告有多少維度，大家可以自己仔細思考下，這裡不展開細說。<br><img src="https://github.com/Johnny-Kao/blog_tech/blob/master/images/2020062005.jpg?raw=true" alt="Wechat Ads Settings details">微信廣告提供地域、人口屬性、興趣行為、手機設備等不同廣告投放選擇。</p>
+<h1 id="為何要知道廣告屬性"><a href="#為何要知道廣告屬性" class="headerlink" title="為何要知道廣告屬性"></a>為何要知道廣告屬性</h1><p>既然你知道自己的廣告屬性了，那麼你可能會問：這跟我有什麼關係？其實你可以：</p>
+<ul>
+<li>理解自己的個性和好奇的領域 - 幫助未來進行任何決策；</li>
+<li>理解自己可能受到那些廣告影響 - 避免衝動性消費；</li>
+<li>創造共同話題 - 如果你有幸看到別人的廣告設定，那麼你可以從這些標籤開啟話題；</li>
+<li>其他 - 影響對方行為、取得商業成功等，思考一下，如果你能影響對方行為，還有什麼事情無法完成嗎？</li>
+</ul>
+<h1 id="如何避免被影響"><a href="#如何避免被影響" class="headerlink" title="如何避免被影響"></a>如何避免被影響</h1><p>看到這裡你可能覺得很可怕，然而實際上在獲得免費服務或是享受科技的方便時，你就無法避免展示使用習慣，進而透露出你的決策行為。但是還是有幾個方法可以減低這些廣告對你的影響：</p>
+<ul>
+<li>屏蔽廣告 - 市面上有很多屏蔽廣告的軟體，你無法看到廣告，自然能夠降低被影響的機率；</li>
+<li>減少數據採集 - 儘量使用無痕模式瀏覽；</li>
+<li>隱藏個人身分 - 查詢資訊時，不登入帳號；</li>
+<li>思考 - 決策前思考自己是否被影響，或是近來所接觸的資訊是否過於集中某個領域。</li>
+</ul>
+<p>掌握自己的數據，才能掌握自己的人生，共勉之。</p>
+<p><span>  累計閱讀量<span id="busuanzi_value_page_pv"></span>次</span></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog_tech/tags/Google/" <i class="fa fa-tag"> Google</a>
+          
+            <a href="/blog_tech/tags/Ads/" <i class="fa fa-tag"> Ads</a>
+          
+            <a href="/blog_tech/tags/隱私/" <i class="fa fa-tag"> 隱私</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog_tech/【開箱】羅技二代旗艦 Logitech MX Master 2S.html" rel="next" title="【開箱】羅技二代旗艦 Logitech MX Master 2S">
+                <i class="fa fa-chevron-left"></i> 【開箱】羅技二代旗艦 Logitech MX Master 2S
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog_tech/【開箱】Anne Pro 2 安妮藍牙機械鍵盤.html" rel="prev" title="【開箱】Anne Pro 2 安妮藍牙機械鍵盤">
+                【開箱】Anne Pro 2 安妮藍牙機械鍵盤 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d8477afcde9f0c0" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog_tech/images/profile.jpg" alt="Johnny Kao">
+            
+              <p class="site-author-name" itemprop="name">Johnny Kao</p>
+
+              <p class="site-description motion-element" itemprop="description">
+
+              
+
+              </p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog_tech/archives">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog_tech/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog_tech/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/johnny.kao.35" rel="external nofollow" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/gaoshengxuan/" rel="external nofollow" target="_blank" title="linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Johnny-Kao" rel="external nofollow" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ar12885@gmail.com" rel="external nofollow" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#被追蹤的搜索數據"><span class="nav-number">1.</span> <span class="nav-text">被追蹤的搜索數據</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#被影響的決策"><span class="nav-number">2.</span> <span class="nav-text">被影響的決策</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看自己的廣告屬性"><span class="nav-number">3.</span> <span class="nav-text">查看自己的廣告屬性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#為何要知道廣告屬性"><span class="nav-number">4.</span> <span class="nav-text">為何要知道廣告屬性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何避免被影響"><span class="nav-number">5.</span> <span class="nav-text">如何避免被影響</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Johnny Kao</span>
+
+  <span>累计访问量 <span id="busuanzi_value_site_pv">248</span> 次</span>
+
+
+
+  
+</div>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog_tech/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog_tech/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog_tech/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog_tech/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog_tech/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog_tech/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog_tech/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog_tech/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog_tech/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog_tech/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog_tech/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog_tech/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog_tech/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://bian-cheng-shu-jian.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://indeedinvest.info/blog_tech/【技術】你了解自己嗎 - 談Google廣告設定.html';
+          this.page.identifier = '【技術】你了解自己嗎 - 談Google廣告設定.html';
+          this.page.title = '【技術】你了解自己嗎 - 談Google廣告設定';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bian-cheng-shu-jian.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog_tech/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
